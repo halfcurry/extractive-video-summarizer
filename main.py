@@ -8,7 +8,7 @@ import pickle
 from train import train_model
 from test import test_model
 
-
+#visualizes the keys and data in the dataset
 def print_keys():
 	keys=h5_x.keys()
 	for k in keys:
@@ -26,7 +26,7 @@ def print_keys():
 				print(j)
 		break
 
-
+#gives some general change point (segments) information 
 def information():
 	keys=h5_x.keys()
 	for k in keys:
@@ -40,7 +40,7 @@ def information():
 def main():
 	h5_x = h5py.File('./eccv16_dataset_summe_google_pool5.h5','r')
 
-
+	#Hops varying from 1-10 (Hyperaparameter)
 	for hops in range(1,11):
 		f_score=0.0
 		for split in range(0,5):

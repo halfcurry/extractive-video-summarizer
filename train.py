@@ -19,11 +19,12 @@ def train_model(split_id,n_hops=1):
 
 
 	# optimizer, model load and stuff
-
+	#Declaring the model
 	model = MA_module_multiple(n_hops)
 	optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
 	loss_criterion=torch.nn.MSELoss()
 
+	#for all train indices
 	tidxs = np.arange(len(test_keys))
 	num_epochs = 100
 	for epoch in range(num_epochs):
@@ -57,6 +58,7 @@ def train_model(split_id,n_hops=1):
 			cost.backward()
 			optimizer.step()
 
+		#calculation of test loss
 		model.eval()
 		test_avg_loss=0
 		for idx in tidxs:

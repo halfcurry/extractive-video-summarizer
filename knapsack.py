@@ -1,6 +1,6 @@
 import numpy as np
 
-
+#solve the 0-1 knapsack problem
 def knapsack_dp(values,weights,n_items,capacity,return_all=False):
 	check_inputs(values,weights,n_items,capacity)
 
